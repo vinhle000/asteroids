@@ -28,7 +28,9 @@ def main():
 
         pygame.Surface.fill(screen, (000, 000, 000),)
 
+        player.update(dt)
         player.draw(screen)
+
 
 
 
