@@ -44,13 +44,6 @@ def main():
 
         pygame.Surface.fill(screen, (000, 000, 000),)
 
-
-# Add another collision check to the game loop.
-# Loop over each asteroid, and for each asteroid,
-#   loop over each bullet.
-# If a bullet and an asteroid collide,
-# call the .kill() method on both objects to remove them from the game.
-
         for sprite in updatable:
             sprite.update(dt)
 
@@ -66,8 +59,6 @@ def main():
 
         for sprite in drawable:
             sprite.draw(screen)
-
-
 
         dt = clock.tick(60) / 1000
         pygame.display.flip() # To be called last
