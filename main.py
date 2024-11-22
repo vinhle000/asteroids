@@ -44,12 +44,25 @@ def main():
 
         pygame.Surface.fill(screen, (000, 000, 000),)
 
+
+# Add another collision check to the game loop.
+# Loop over each asteroid, and for each asteroid,
+#   loop over each bullet.
+# If a bullet and an asteroid collide,
+# call the .kill() method on both objects to remove them from the game.
+
         for sprite in updatable:
             sprite.update(dt)
 
-        for sprite in asteroids:
-             if sprite.detect_collision(player):
+        for asteroid in asteroids:
+            if asteroid.detect_collision(player):
                 raise SystemExit("Game over!")
+
+            for shot in shots:
+                if shot.detect_collision(asteroid):
+                    shot.kill()
+                    asteroid.kill()
+
 
         for sprite in drawable:
             sprite.draw(screen)
